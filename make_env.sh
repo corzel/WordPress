@@ -8,16 +8,16 @@ VERSION=`cat VERSION`
 
 if [ ! -f .env ];then
     {
-		echo "SERVER_NAME=danza.xyz";
+		echo "SERVER_NAME=example.com";
 		echo "COMPOSE_PROJECT_NAME=wordpress";
         echo "#The email will be used for registering to Lets Encrypt for the TLS certificate"
-		echo "ADMIN_EMAIL=soporte@culturaenlinea.net";
-		echo "ADMIN_PASSWORD=Cu17ur43n1in34#ADM@";
+		echo "ADMIN_EMAIL=foo@bar.com";
+		echo "ADMIN_PASSWORD=changeme";
 		echo "WP_DB_USER=root";
-		echo "WP_DB_PASSWORD=Cu17ur43n1in34#DB@";
-		echo "WP_DB_NAME=db_xyz";
-		echo "MYSQL_ROOT_PASSWORD=Cu17ur43n1in34#DB@";
-        echo "DB_HOSTNAME=144.217.94.177:3306"
+		echo "WP_DB_PASSWORD=changeme";
+		echo "WP_DB_NAME=changeme";
+		echo "MYSQL_ROOT_PASSWORD=changeme";
+        echo "DB_HOSTNAME=changeme"
         echo "#uncomment and subsitute placeholder text from below instead, keeping same connection format,  if clonning a wordpress web site from private repo"
 		echo "#GIT_SSH_URL=git@github.com:user/project.git";
 		echo "GIT_SSH_URL=https://github.com/WordPress/WordPress.git";
