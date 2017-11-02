@@ -1,4 +1,4 @@
-# docker-nginx-fpm-caches-wordpress
+# UPTADED VERSION of docker-nginx-fpm-caches-wordpress
 
 [![](https://images.microbadger.com/badges/image/rija/docker-nginx-fpm-caches-wordpress.svg)](https://microbadger.com/images/rija/docker-nginx-fpm-caches-wordpress "Get your own image badge on microbadger.com")
 [![Build Status](https://img.shields.io/badge/docker%20hub-automated%20build-ff69b4.svg)](https://hub.docker.com/r/rija/docker-nginx-fpm-caches-wordpress/)
