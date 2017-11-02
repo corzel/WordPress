@@ -243,7 +243,7 @@ RUN sed -i -e"s/^;opcache.enable=0/opcache.enable=1/" /etc/php/$PHP_VERSION/fpm/
 
 # setting up GIT
 ARG GIT_SSH_URL
-ENV GIT_SSH_URL ${GIT_SSH_URL:-"https://github.com/WordPress/WordPress.git"}
+ENV GIT_SSH_URL ${GIT_SSH_URL:-"https://github.com/corzel/wordpress-4.8.3-es.git"}
 
 
 # Build-time metadata as defined at http://label-schema.org
