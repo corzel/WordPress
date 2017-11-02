@@ -1,12 +1,12 @@
 version: '2'
 services:
-  webapp:
+  wordpress:
     restart: 'unless-stopped'
     cap_add:
       - NET_ADMIN
     networks:
       - wp_net
-    image: corzel/wordpress
+    image: corzel/wordpress-nginx-fpm-caches
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -31,4 +31,3 @@ services:
 networks:
   wp_net:
     driver: bridge
-
