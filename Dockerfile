@@ -40,7 +40,7 @@ RUN install_packages \
 
 ENV GOSU_VERSION 1.10
 ENV NGINX_VERSION 1.13.6
-ENV PHP_VERSION 7.1.11
+ENV PHP_VERSION 7.1
 
 # php installation
 
