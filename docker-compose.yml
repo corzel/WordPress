@@ -1,0 +1,34 @@
+version: '2'
+services:
+  webapp:
+    restart: 'unless-stopped'
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - wp_net
+    image: corzel/wordpress
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./.ssh:/root/deploykeys:ro
+      - /tmp:/root/backups
+      - ./:/root/sqlimport:ro
+      - ./wordpress:/usr/share/nginx/www
+    ports:
+      - 443:443
+      - 80:80
+
+    environment:
+      GIT_DEPLOY_KEY: ${GIT_DEPLOY_KEY}
+      SERVER_NAME: ${SERVER_NAME}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      DB_HOSTNAME: ${DB_HOSTNAME}
+      DB_USER: ${WP_DB_USER}
+      DB_PASSWORD: ${WP_DB_PASSWORD}
+      DB_DATABASE: ${WP_DB_NAME}
+
+networks:
+  wp_net:
+    driver: bridge
+

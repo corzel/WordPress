@@ -1,0 +1,43 @@
+---
+
+- name: build a new image for the Wordpress web site
+  hosts: localhost
+
+  vars:
+     force_build: no
+     image_name: "{{ lookup('ini', 'IMAGE_NAME type=properties file=../.env') }}"
+     image_version: "{{ lookup('ini', 'VERSION type=properties file=../.env') }}"
+
+  vars_prompt:
+     - name: "registry_password"
+       prompt: "please, enter registry password"
+       private: yes
+
+  tasks:
+     - name: Gather context
+       command: ./make_env.sh
+       args:
+        chdir: ..
+
+     - debug:
+         msg: "image version: {{image_version}}"
+
+     - name: login to the gitlab registry
+       docker_login:
+         registry: "{{registry_url}}"
+         username: "{{registry_user}}"
+         password: "{{registry_password}}"
+         reauthorize: yes
+
+
+     - name: Build, Tag and push to the registry
+       docker_image:
+         state: build
+         name: "{{registry_url}}/{{ image_name }}"
+         repository: "{{registry_url}}/{{ image_name }}"
+         tag: "{{ image_version }}"
+         path: ..
+         pull: no
+         push: yes
+         rm: yes
+         force: "{{force_build}}"
