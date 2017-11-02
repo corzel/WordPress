@@ -23,7 +23,7 @@ The container doesn't have a database server, but the supplied docker compose fi
 
 
 **Headline features:**
-* Nginx 1.13.0
+* Nginx 1.13.6
 * HTTP/2 and TLS encryption configured
 * TLS configured using Mozilla Server-side TLS Intermediate profile + TLSv1.3
 * PHP 7.1 installed with CLI, PHP-FPM and bare essential extensions
