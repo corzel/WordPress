@@ -127,13 +127,13 @@ fi
 cd  /usr/share/nginx/www/wp-content/mu-plugins && curl -O -fsSL https://raw.githubusercontent.com/roots/wp-password-bcrypt/master/wp-password-bcrypt.php
 echo "performed: installed wp-password-bcrypt"
 
-if [ "$GIT_SSH_URL" = "https://github.com/corzel/wordpress-4.8.3-es.git" -a "$NEW_INSTALL" = 1 ]; then
+if [ "$GIT_SSH_URL" = "https://github.com/WordPress/WordPress.git" -a "$NEW_INSTALL" = 1 ]; then
     # it's a fresh wordpress install, so we need to run Wordpress installation program
     cd /usr/share/nginx/www
     gosu www-data wp core install --url=https://$SERVER_NAME --title=$SERVER_NAME --admin_user=admin --admin_email=$ADMIN_EMAIL --admin_password=$ADMIN_PASSWORD
     echo "performed: wp core install (--url=https://$SERVER_NAME --title=$SERVER_NAME --admin_user=admin --admin_email=$ADMIN_EMAIL --admin_password=##HIDDEN##)"
 
-elif [ "$GIT_SSH_URL" != "https://github.com/corzel/wordpress-4.8.3-es.git" -a -f /root/sqlimport/wordpress.sql ]; then
+elif [ "$GIT_SSH_URL" != "https://github.com/WordPress/WordPress.git" -a -f /root/sqlimport/wordpress.sql ]; then
     mysql  -h $DB_HOSTNAME -u $DB_USER -p$DB_PASSWORD $DB_DATABASE < /root/sqlimport/wordpress.sql
     echo "performed: mysql import"
 fi
