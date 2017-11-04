@@ -20,7 +20,7 @@ if [ ! -f .env ];then
         echo "DB_HOSTNAME=changeme"
         echo "#uncomment and subsitute placeholder text from below instead, keeping same connection format,  if clonning a wordpress web site from private repo"
 		echo "#GIT_SSH_URL=git@github.com:user/project.git";
-		echo "GIT_SSH_URL=https://github.com/WordPress/WordPress.git";
+		echo "GIT_SSH_URL=https://github.com/corzel/wordpress-4.8.3-es.git";
 		echo "GIT_DEPLOY_KEY=git_deploy_key";
 		echo "IMAGE_NAME=wordpress";
 		echo "REGISTRY_URL=registry.gitlab.com"
