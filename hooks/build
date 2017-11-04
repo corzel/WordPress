@@ -3,5 +3,5 @@
 docker build --build-arg VCS_REF=`git rev-parse --short HEAD` \
             --build-arg BUILD_DATE=`date -u +”%Y-%m-%dT%H:%M:%SZ”` \
             --build-arg VERSION=`cat VERSION` \
-            --build-arg GIT_SSH_URL=https://github.com/corzel/wordpress-4.8.3-es.git \
+            --build-arg GIT_SSH_URL=https://github.com/WordPress/WordPress.git \
   -t $IMAGE_NAME .
