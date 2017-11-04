@@ -22,7 +22,7 @@ if [ ! -f .env ];then
 		echo "#GIT_SSH_URL=git@github.com:user/project.git";
 		echo "GIT_SSH_URL=https://github.com/corzel/wordpress-4.8.3-es.git";
 		echo "GIT_DEPLOY_KEY=git_deploy_key";
-		echo "IMAGE_NAME=wordpress";
+		echo "IMAGE_NAME=corzel/wordpress-nginx-fpm-caches";
 		echo "REGISTRY_URL=registry.gitlab.com"
 		echo "BUILD_DATE=$BUILD_DATE";
 		echo "VCS_REF=$VCS_REF";
